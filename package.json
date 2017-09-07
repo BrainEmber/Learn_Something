@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/BrainEmber/Learn_Something_FrontEnd/issues"
   },
-  "homepage": "https://github.com/BrainEmber/Learn_Something_FrontEnd#readme"
+  "homepage": "https://github.com/BrainEmber/Learn_Something_FrontEnd#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
