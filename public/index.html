@@ -7,7 +7,17 @@
 	<script type="text/javascript" src="app.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-Hello
+<body ng-controller="mainController as ctrl">
+
+<ul>
+	<li>{{ctrl.name}}</li>
+	<li>Author: {{ctrl.author}} </li>
+	<li>Released: {{ctrl.date}} </li>
+	<li>Coding Lanuage: {{ctrl.language}} </li>
+	<li>Difficulty: {{ctrl.difficulty}}</li>
+	<li>{{ctrl.url}} </li>
+</ul>
+	
+
 </body>
 </html>
