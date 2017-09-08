@@ -5,6 +5,7 @@
 	<title>Learn Something</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/angular.youtube-embed/1.7.10/ng-youtube-embed.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="mainController as ctrl">
@@ -16,17 +17,25 @@
 	<li>Released: {{lesson.date}} </li>
 	<li>Coding Lanuage: {{lesson.language}} </li>
 	<li>Difficulty: {{lesson.difficulty}}</li>
-	<li>{{lesson.url}}</li>
+	<ng-youtube-embed 
+    video="lesson.url" 
+    autoplay="false"
+    color="white"
+    disablekb="true"
+    end="20">
+</ng-youtube-embed>
+
+
 </ul>
 </div>
 
-	<div ng-repeat="video in ctrl.videos | orderBy: '-date'"  style="padding:20px">
+<!-- 	<div ng-repeat="video in ctrl.videos | orderBy: '-date'"  style="padding:20px">
 <div>
    <iframe width="560" height="315" ng-src="{{video.url | trusted}}" 
-     frameborder="0" allowfullscreen></iframe>
+     frameborder="0" allowfullscreen></iframe> -->
     <!-- <p>Display output for control reasons: {{video.url | trusted}}</p> -->
-</div>
-</div>
+<!-- </div>
+</div> -->
 
 </body>
 </html>
