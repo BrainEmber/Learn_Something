@@ -10,6 +10,7 @@ app.controller('mainController', ['$http', function($http){
 	const controller = this;
 	this.text1 = 'Show video';
 	this.text2 = 'Hide video';
+	this.playlistId = 0;
 
 
 	$http({
@@ -24,7 +25,7 @@ app.controller('mainController', ['$http', function($http){
 			// this.difficulty = response.data[0].difficulty;
 			// this.url = response.data[0].url;
 			this.lessons = response.data;
-			
+
 		}).catch(err => console.log(err));
 
 	$http({
@@ -39,7 +40,7 @@ app.controller('mainController', ['$http', function($http){
 			// this.difficulty = response.data[0].difficulty;
 			// this.url = response.data[0].url;
 			this.playlists = response.data;
-			
+
 		}).catch(err => console.log(err));
 
 	this.addToPlaylist = function(){
@@ -79,6 +80,18 @@ app.controller('mainController', ['$http', function($http){
 			console.log(response);
 		}).catch(err => console.log(err));
 	};
+
+
+
+	// this.removePlaylist = function(id){
+	// 	$http({
+	// 		method: 'DELETE',
+	// 		url: 'https://localhost:3000/playlists/:id'
+	// 	}).then
+	// 	(response => {
+	// 		console.log(response);
+	// 	}).catch(err => console.log(err));
+	// };
 
 }]);
 

@@ -23,8 +23,8 @@
 	<li>Released: {{lesson.date}} </li>
 	<li>Coding Lanuage: {{lesson.language}} </li>
 	<li>Difficulty: {{lesson.difficulty}}</li>
-	<ng-youtube-embed 
-    video="lesson.url" 
+	<ng-youtube-embed
+    video="lesson.url"
     autoplay="false"
     color="white"
     disablekb="true"
@@ -57,6 +57,7 @@
 <div ng-repeat="playlist in ctrl.playlists">
 <ul>
 	<li>{{playlist.name}}</li>
+	<!-- <button ng-click="ctrl.removePlaylist(1)" >Delete Playlist</button> -->
 	--------------------------------------
 </ul>
 <div ng-repeat="lesson in playlist.lessons">
@@ -64,8 +65,9 @@
 	<li>{{lesson.name}}</li>
 	<button ng-show="!isHidden" ng-click="isHidden = true">{{ctrl.text1}}</button>
 	<button  ng-show="isHidden" ng-click="isHidden = false">{{ctrl.text2}}</button>
+	<!-- <button ng-click="removeLesson()" >Remove Lesson</button> -->
 	<ng-youtube-embed ng-show="isHidden"
-    video="lesson.url" 
+    video="lesson.url"
     autoplay="false"
     color="white"
     disablekb="true"
