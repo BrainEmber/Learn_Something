@@ -7,6 +7,9 @@ app.controller('mainController', ['$http', function($http){
 	this.videos = [
 {
 	"url": "https://www.youtube.com/watch?v=T93WOuwUZ3s"
+},
+{
+	"url": "https://www.youtube.com/watch?v=rfsWnO980H8"
 }
 	];
 
@@ -16,12 +19,12 @@ app.controller('mainController', ['$http', function($http){
 		url: 'http://localhost:3000/lessons'
 	}).then
 		(response => {
-			this.name = response.data[0].name;
-			this.author = response.data[0].author;
-			this.date = response.data[0].date;
-			this.language = response.data[0].language;
-			this.difficulty = response.data[0].difficulty;
-			this.url = response.data[0].url;
+			// this.name = response.data[0].name;
+			// this.author = response.data[0].author;
+			// this.date = response.data[0].date;
+			// this.language = response.data[0].language;
+			// this.difficulty = response.data[0].difficulty;
+			// this.url = response.data[0].url;
 			this.lessons = response.data;
 			console.log(response.data[0].name);
 		}).catch(err => console.log(err));
