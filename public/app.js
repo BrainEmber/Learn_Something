@@ -4,14 +4,10 @@ const app = angular.module('learnSomething', ['ngYoutubeEmbed']);
 
 app.controller('mainController', ['$http', function($http){
 	this.lessons = [];
-	this.videos = [
-{
-	"url": "https://www.youtube.com/watch?v=T93WOuwUZ3s"
-},
-{
-	"url": "https://www.youtube.com/watch?v=rfsWnO980H8"
-}
-	];
+	this.playlists = [];
+	this.ledgers = [];
+	this.formData = {};
+	const controller = this;
 
 
 	$http({
@@ -26,9 +22,43 @@ app.controller('mainController', ['$http', function($http){
 			// this.difficulty = response.data[0].difficulty;
 			// this.url = response.data[0].url;
 			this.lessons = response.data;
-			console.log(response.data[0].name);
+			
 		}).catch(err => console.log(err));
 
+	this.addToPlaylist = function(){
+		$http({
+			method: 'POST',
+			url: 'http://localhost:3000/ledgers'
+		}).then
+		(response => {
+
+		}).catch(err => console.log(err));
+	};
+
+// 		this.addToPlaylist = function($resource){
+// 			var lessonA = $resource('/lessons/:id.json');
+// 			console.log('Add button clicked');
+// 			console.log(lessonA);
+// };
+
+	this.createPlaylist = function(){
+		$http({
+			method: 'POST',
+			url: 'http://localhost:3000/playlists',
+			dataType: 'json',
+			data: {
+				name : this.name,
+				difficulty : this.difficulty,
+				number : this.number,
+				languages : this.languages,
+			}
+
+			
+		}).then
+		(response => {
+			console.log(response);
+		}).catch(err => console.log(err));
+	};
 
 }]);
 
