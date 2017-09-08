@@ -1,6 +1,6 @@
 console.log('angular app.js is connected');
 
-const app = angular.module('learnSomething', []);
+const app = angular.module('learnSomething', ['ngYoutubeEmbed']);
 
 app.controller('mainController', ['$http', function($http){
 	this.lessons = [];
@@ -32,9 +32,9 @@ app.controller('mainController', ['$http', function($http){
 
 }]);
 
-app.filter('trusted', ['$sce', function ($sce) {
-    return function(url) {
-            var video_id = url.split('v=')[1].split('&')[0];
-        return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + video_id);
-    };
-}]);
+// app.filter('trusted', ['$sce', function ($sce) {
+//     return function(url) {
+//             var video_id = url.split('v=')[1].split('&')[0];
+//         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + video_id);
+//     };
+// }]);
