@@ -46,6 +46,8 @@
 </form>
 
 <h2>Add to a playlist!</h2>
+<select ng-model="selectedName" ng-options="x for x in names">
+</select>
 <form ng-submit="ctrl.addToPlaylist(playlist_id, lesson_id)">
 	<input ng-model="ctrl.playlist_id" type="text"  placeholder="playlist_id ex. 1,2,3,etc.">
 	<input ng-model="ctrl.lesson_id" type="text"  placeholder="lesson_id ex. 1,2,3,etc.">
