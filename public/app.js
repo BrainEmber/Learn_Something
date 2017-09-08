@@ -8,6 +8,8 @@ app.controller('mainController', ['$http', function($http){
 	this.ledgers = [];
 	this.formData = {};
 	const controller = this;
+	this.text1 = 'Show video';
+	this.text2 = 'Hide video';
 
 
 	$http({
@@ -25,13 +27,33 @@ app.controller('mainController', ['$http', function($http){
 			
 		}).catch(err => console.log(err));
 
+	$http({
+		method: 'GET',
+		url: 'http://localhost:3000/playlists'
+	}).then
+		(response => {
+			// this.name = response.data[0].name;
+			// this.author = response.data[0].author;
+			// this.date = response.data[0].date;
+			// this.language = response.data[0].language;
+			// this.difficulty = response.data[0].difficulty;
+			// this.url = response.data[0].url;
+			this.playlists = response.data;
+			
+		}).catch(err => console.log(err));
+
 	this.addToPlaylist = function(){
 		$http({
 			method: 'POST',
-			url: 'http://localhost:3000/ledgers'
+			url: 'http://localhost:3000/ledgers',
+			dataType: 'json',
+			data : {
+				lesson_id: this.lesson_id,
+				playlist_id: this.playlist_id
+			}
 		}).then
 		(response => {
-
+			console.log(response);
 		}).catch(err => console.log(err));
 	};
 
@@ -52,8 +74,6 @@ app.controller('mainController', ['$http', function($http){
 				number : this.number,
 				languages : this.languages,
 			}
-
-			
 		}).then
 		(response => {
 			console.log(response);
