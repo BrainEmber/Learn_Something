@@ -4,6 +4,11 @@ const app = angular.module('learnSomething', []);
 
 app.controller('mainController', ['$http', function($http){
 	this.lessons = [];
+	this.videos = [
+{
+	"url": "https://www.youtube.com/watch?v=T93WOuwUZ3s"
+}
+	];
 
 
 	$http({
@@ -17,7 +22,16 @@ app.controller('mainController', ['$http', function($http){
 			this.language = response.data[0].language;
 			this.difficulty = response.data[0].difficulty;
 			this.url = response.data[0].url;
-			console.log(response.data[0].name);
 			this.lessons = response.data;
+			console.log(response.data[0].name);
 		}).catch(err => console.log(err));
+
+
+}]);
+
+app.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+            var video_id = url.split('v=')[1].split('&')[0];
+        return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + video_id);
+    };
 }]);
