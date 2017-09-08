@@ -9,15 +9,16 @@
 </head>
 <body ng-controller="mainController as ctrl">
 
+<div ng-repeat="lesson in ctrl.lessons">
 <ul>
-	<li>{{ctrl.name}}</li>
-	<li>Author: {{ctrl.author}} </li>
-	<li>Released: {{ctrl.date}} </li>
-	<li>Coding Lanuage: {{ctrl.language}} </li>
-	<li>Difficulty: {{ctrl.difficulty}}</li>
-	<li>{{ctrl.url}}</li>
+	<li>{{lesson.name}}</li>
+	<li>Author: {{lesson.author}} </li>
+	<li>Released: {{lesson.date}} </li>
+	<li>Coding Lanuage: {{lesson.language}} </li>
+	<li>Difficulty: {{lesson.difficulty}}</li>
+	<li>{{lesson.url}}</li>
 </ul>
-	
+</div>
 
 	<div ng-repeat="video in ctrl.videos | orderBy: '-date'"  style="padding:20px">
 <div>
