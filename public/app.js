@@ -83,15 +83,15 @@ app.controller('mainController', ['$http', function($http){
 
 
 
-	// this.removePlaylist = function(id){
-	// 	$http({
-	// 		method: 'DELETE',
-	// 		url: 'https://localhost:3000/playlists/:id'
-	// 	}).then
-	// 	(response => {
-	// 		console.log(response);
-	// 	}).catch(err => console.log(err));
-	// };
+	this.removePlaylist = function(id){
+		$http({
+			method: 'DELETE',
+			url: 'http://localhost:3000/playlists/' + id 
+		}).then
+		(response => {
+			console.log(response);
+		}).catch(err => console.log(err));
+	};
 
 }]);
 

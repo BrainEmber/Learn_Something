@@ -57,7 +57,7 @@
 <div ng-repeat="playlist in ctrl.playlists">
 <ul>
 	<li>{{playlist.name}}</li>
-	<!-- <button ng-click="ctrl.removePlaylist(1)" >Delete Playlist</button> -->
+	<button ng-click="ctrl.removePlaylist(playlist.id)" >Delete Playlist</button>
 	--------------------------------------
 </ul>
 <div ng-repeat="lesson in playlist.lessons">
