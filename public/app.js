@@ -22,8 +22,8 @@ app.controller('mainController', ['$http', function($http){
 			this.language = response.data[0].language;
 			this.difficulty = response.data[0].difficulty;
 			this.url = response.data[0].url;
-			console.log(response.data[0].name);
 			this.lessons = response.data;
+			console.log(response.data[0].name);
 		}).catch(err => console.log(err));
 
 
