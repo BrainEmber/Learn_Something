@@ -24,10 +24,20 @@
     disablekb="true"
     end="20">
 </ng-youtube-embed>
+	<button ng-click="ctrl.addToPlaylist()">Add to Playlist</button>
 
 
 </ul>
 </div>
+
+<h2>Create a playlist!</h2>
+<form ng-submit="ctrl.createPlaylist(name, difficulty, languages, number)">
+	<input ng-model="ctrl.name" type="text"  placeholder="name">
+	<input ng-model="ctrl.difficulty" type="text"  placeholder="difficulty">
+	<input ng-model="ctrl.number" type="text"  placeholder="number">
+	<input ng-model="ctrl.languages" type="text"  placeholder="language(s)">
+	<input type="submit" value="submit">
+</form>
 
 <!-- 	<div ng-repeat="video in ctrl.videos | orderBy: '-date'"  style="padding:20px">
 <div>
