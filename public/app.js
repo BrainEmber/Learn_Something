@@ -15,7 +15,11 @@ app.controller('mainController', ['$http', function($http){
 	{name: 'beginnerlevel', difficulty: 'Beginner'}, 
 	{name: 'intermediatelevel', difficulty: 'Intermediate'}, 
 	{name: 'advancedlevel', difficulty: 'Advanced'}
-
+	];
+	this.lessonLanguages = [
+	{name: 'rubylanguage', language: 'Ruby'},
+	{name: 'pythonlanguage', language: 'Python'},
+	{name: 'javascriptlanguage', language: 'Javascript'}
 	];
 
 
@@ -109,18 +113,4 @@ app.controller('mainController', ['$http', function($http){
 		}).catch(err => console.log(err));
 	};
 
-		this.filterByDifficulty = function(lesson){
-			if (lesson === 'Beginner') {
-				console.log(lesson);
-				return lesson;
-			}
-		};
-
 }]);
-
-// app.filter('trusted', ['$sce', function ($sce) {
-//     return function(url) {
-//             var video_id = url.split('v=')[1].split('&')[0];
-//         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + video_id);
-//     };
-// }]);
