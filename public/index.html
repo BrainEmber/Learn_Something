@@ -16,26 +16,66 @@
 </head>
 <body ng-controller="mainController as ctrl">
 
-<div ng-repeat="lesson in ctrl.lessons">
-<ul>
-	<li>{{lesson.name}}</li>
-	<li>Author: {{lesson.author}} </li>
-	<li>Released: {{lesson.date}} </li>
-	<li>Coding Lanuage: {{lesson.language}} </li>
-	<li>Difficulty: {{lesson.difficulty}}</li>
-	<ng-youtube-embed
+
+<!-- <div class="form-group">
+	<select ng-model="filter.place" ng-options="lesson.difficulty for lesson in ctrl.lessons"> 
+	<option value="">Select a difficulty</option>
+	</select>
+</div> -->
+<!-- | filter:'filter.place.lesson.difficulty' -->
+
+
+
+<!-- <select ng-model="selected.difficulty">
+	<option value="">Difficulty</option>
+	<option ng-repeat="lesson in ctrl.lessons">{{lesson.difficulty}}</option>
+</select>
+
+
+<select ng-model="selected.language">
+	<option value="">Language</option>
+	<option ng-repeat="lesson in ctrl.lessons">{{lesson.language}}</option>
+</select>
+{{selected.language}}
+{{selected.difficulty}} -->
+
+
+
+<!-- <div ng-repeat="lesson in ctrl.lessons> -->
+<!-- ng-show="selected.difficulty === 'Beginner'" -->
+<!-- | filter: ctrl.filterByDifficulty(lesson.difficulty)  -->
+
+<select ng-model="lessonFilter"
+	data-ng-options="difficulty.difficulty as difficulty.name for difficulty in ctrl.lessonDifficulties">
+		<option value selected="selected">Show All</option>
+</select>
+
+<select ng-model="lessonzFilter"
+	data-ng-options="language.language as language.name for language in ctrl.lessonLanguages">
+		<option value selected="selected">Show All</option>
+</select>
+
+ 
+	
+
+<div data-ng-repeat="lesson in ctrl.lessons | filter:(!!lessonFilter || undefined) && {difficulty: lessonFilter} | filter:(!!lessonzFilter || undefined) && {language: lessonzFilter}">
+	<ul>
+		<li>{{lesson.name}}</li>
+		<li>Author: {{lesson.author}} </li>
+		<li>Released: {{lesson.date}} </li>
+		<li>Coding Lanuage: {{lesson.language}} </li>
+		<li>Difficulty: {{lesson.difficulty}}</li>
+		<ng-youtube-embed
     video="lesson.url"
     autoplay="false"
     color="white"
     disablekb="true"
     end="20">
-</ng-youtube-embed>
-	<button ng-click="ctrl.addToPlaylist()">Add to Playlist</button>
-
-
-</ul>
+		</ng-youtube-embed>
+	</ul>
 </div>
 
+	<!-- <button ng-click="ctrl.addToPlaylist()">Add to Playlist</button> eventually goes alongside embedded youtube vid-->
 <h2>Create a playlist!</h2>
 <form ng-submit="ctrl.createPlaylist(name, difficulty, languages, number)">
 	<input ng-model="ctrl.name" type="text"  placeholder="name">
@@ -46,7 +86,6 @@
 </form>
 
 <h2>Add to a playlist!</h2>
-<option ng-repeat="lessons in ctrl.lessons">{{lessons.name}}</option>
 <form ng-submit="ctrl.addToPlaylist(playlist_id, lesson_id)">
 	<input ng-model="ctrl.playlist_id" type="text"  placeholder="playlist_id ex. 1,2,3,etc.">
 	<input ng-model="ctrl.lesson_id" type="text"  placeholder="lesson_id ex. 1,2,3,etc.">

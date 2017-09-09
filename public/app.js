@@ -11,6 +11,16 @@ app.controller('mainController', ['$http', function($http){
 	this.text1 = 'Show video';
 	this.text2 = 'Hide video';
 	this.playlistId = 0;
+	this.lessonDifficulties = [
+	{name: 'beginnerlevel', difficulty: 'Beginner'}, 
+	{name: 'intermediatelevel', difficulty: 'Intermediate'}, 
+	{name: 'advancedlevel', difficulty: 'Advanced'}
+	];
+	this.lessonLanguages = [
+	{name: 'rubylanguage', language: 'Ruby'},
+	{name: 'pythonlanguage', language: 'Python'},
+	{name: 'javascriptlanguage', language: 'Javascript'}
+	];
 
 
 
@@ -104,10 +114,3 @@ app.controller('mainController', ['$http', function($http){
 	};
 
 }]);
-
-// app.filter('trusted', ['$sce', function ($sce) {
-//     return function(url) {
-//             var video_id = url.split('v=')[1].split('&')[0];
-//         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + video_id);
-//     };
-// }]);
