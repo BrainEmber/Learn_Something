@@ -13,6 +13,7 @@ app.controller('mainController', ['$http', function($http){
 	this.playlistId = 0;
 
 
+
 	$http({
 		method: 'GET',
 		url: 'http://localhost:3000/lessons'
@@ -25,7 +26,6 @@ app.controller('mainController', ['$http', function($http){
 			// this.difficulty = response.data[0].difficulty;
 			// this.url = response.data[0].url;
 			this.lessons = response.data;
-
 		}).catch(err => console.log(err));
 
 	$http({
@@ -87,6 +87,16 @@ app.controller('mainController', ['$http', function($http){
 		$http({
 			method: 'DELETE',
 			url: 'http://localhost:3000/playlists/' + id 
+		}).then
+		(response => {
+			console.log(response);
+		}).catch(err => console.log(err));
+	};
+
+		this.removeLedger= function(id){
+		$http({
+			method: 'DELETE',
+			url: 'http://localhost:3000/ledgers/' + id 
 		}).then
 		(response => {
 			console.log(response);
