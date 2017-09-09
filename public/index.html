@@ -23,7 +23,10 @@
 	</select>
 </div> -->
 <!-- | filter:'filter.place.lesson.difficulty' -->
-<select ng-model="selected.difficulty">
+
+
+
+<!-- <select ng-model="selected.difficulty">
 	<option value="">Difficulty</option>
 	<option ng-repeat="lesson in ctrl.lessons">{{lesson.difficulty}}</option>
 </select>
@@ -34,12 +37,24 @@
 	<option ng-repeat="lesson in ctrl.lessons">{{lesson.language}}</option>
 </select>
 {{selected.language}}
-{{selected.difficulty}}
+{{selected.difficulty}} -->
+
+
 
 <!-- <div ng-repeat="lesson in ctrl.lessons> -->
 <!-- ng-show="selected.difficulty === 'Beginner'" -->
 <!-- | filter: ctrl.filterByDifficulty(lesson.difficulty)  -->
-<div ng-repeat="lesson in ctrl.lessons | filter: {difficulty: 'Beginner'}">
+
+<select ng-model="lessonFilter"
+	data-ng-options="difficulty.difficulty as difficulty.name for difficulty in ctrl.lessonDifficulties">
+	<option value selected="selected">Show All</option>
+	</select>
+	
+
+
+
+
+<div data-ng-repeat="lesson in ctrl.lessons | filter:(!!lessonFilter || undefined) && {difficulty: lessonFilter}"">
 <ul>
 	<li>{{lesson.name}}</li>
 	<li>Author: {{lesson.author}} </li>
