@@ -11,6 +11,7 @@ app.controller('mainController', ['$http', function($http){
 	this.text1 = 'Show video';
 	this.text2 = 'Hide video';
 	this.playlistId = 0;
+	this.difficulties = ['Beginner', 'Intermediate', 'Advanced'];
 
 
 
@@ -102,6 +103,13 @@ app.controller('mainController', ['$http', function($http){
 			console.log(response);
 		}).catch(err => console.log(err));
 	};
+
+		this.filterByDifficulty = function(lesson){
+			if (lesson === 'Beginner') {
+				console.log(lesson);
+				return lesson;
+			}
+		};
 
 }]);
 
