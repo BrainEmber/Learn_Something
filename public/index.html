@@ -46,8 +46,7 @@
 </form>
 
 <h2>Add to a playlist!</h2>
-<select ng-model="selectedName" ng-options="x for x in names">
-</select>
+<option ng-repeat="lessons in ctrl.lessons">{{lessons.name}}</option>
 <form ng-submit="ctrl.addToPlaylist(playlist_id, lesson_id)">
 	<input ng-model="ctrl.playlist_id" type="text"  placeholder="playlist_id ex. 1,2,3,etc.">
 	<input ng-model="ctrl.lesson_id" type="text"  placeholder="lesson_id ex. 1,2,3,etc.">
@@ -57,7 +56,7 @@
 <div ng-repeat="playlist in ctrl.playlists">
 <ul>
 	<li>{{playlist.name}}</li>
-	<!-- <button ng-click="ctrl.removePlaylist(1)" >Delete Playlist</button> -->
+	<button ng-click="ctrl.removePlaylist(playlist.id)" >Delete Playlist</button>
 	--------------------------------------
 </ul>
 <div ng-repeat="lesson in playlist.lessons">
@@ -65,7 +64,7 @@
 	<li>{{lesson.name}}</li>
 	<button ng-show="!isHidden" ng-click="isHidden = true">{{ctrl.text1}}</button>
 	<button  ng-show="isHidden" ng-click="isHidden = false">{{ctrl.text2}}</button>
-	<!-- <button ng-click="removeLesson()" >Remove Lesson</button> -->
+<!-- 	<button ng-click="ctrl.removeLedger(ledger.id)" >Delete lesson from playlist</button> -->
 	<ng-youtube-embed ng-show="isHidden"
     video="lesson.url"
     autoplay="false"
