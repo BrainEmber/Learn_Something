@@ -4,5 +4,19 @@ body {
 
 ul {
 	list-style-type: none;
-	/*padding-left: 0px;*/
+	padding-left: 0px 10px;
+}
+
+#lessonDiv {
+	display: inline-block;
+}
+
+.filterSelect {
+	display: block;
+	text-align: center;
+
+}
+
+.filterSelect select {
+	border-color: #29f34f;
 }

@@ -44,27 +44,26 @@
 <!-- <div ng-repeat="lesson in ctrl.lessons> -->
 <!-- ng-show="selected.difficulty === 'Beginner'" -->
 <!-- | filter: ctrl.filterByDifficulty(lesson.difficulty)  -->
-
+<div class="filterSelect">
 <select ng-model="lessonFilter"
 	data-ng-options="difficulty.difficulty as difficulty.name for difficulty in ctrl.lessonDifficulties">
-		<option value selected="selected">Show All</option>
+		<option value selected="selected">All Difficulties</option>
 </select>
 
 <select ng-model="lessonzFilter"
 	data-ng-options="language.language as language.name for language in ctrl.lessonLanguages">
-		<option value selected="selected">Show All</option>
+		<option value selected="selected">All Coding Languages</option>
 </select>
+<div>
 
- 
-	
-
-<div data-ng-repeat="lesson in ctrl.lessons | filter:(!!lessonFilter || undefined) && {difficulty: lessonFilter} | filter:(!!lessonzFilter || undefined) && {language: lessonzFilter}">
+<div id="lessonDiv" data-ng-repeat="lesson in ctrl.lessons | filter:(!!lessonFilter || undefined) && {difficulty: lessonFilter} | filter:(!!lessonzFilter || undefined) && {language: lessonzFilter}">
 	<ul>
 		<li>{{lesson.name}}</li>
 		<li>Author: {{lesson.author}} </li>
 		<li>Released: {{lesson.date}} </li>
 		<li>Coding Lanuage: {{lesson.language}} </li>
 		<li>Difficulty: {{lesson.difficulty}}</li>
+		<li>Id: {{lesson.id}}</li>
 		<ng-youtube-embed
     video="lesson.url"
     autoplay="false"
@@ -76,27 +75,37 @@
 </div>
 
 	<!-- <button ng-click="ctrl.addToPlaylist()">Add to Playlist</button> eventually goes alongside embedded youtube vid-->
-<h2>Create a playlist!</h2>
+<h2>Create a playlist</h2>
 <form ng-submit="ctrl.createPlaylist(name, difficulty, languages, number)">
-	<input ng-model="ctrl.name" type="text"  placeholder="name">
-	<input ng-model="ctrl.difficulty" type="text"  placeholder="difficulty">
-	<input ng-model="ctrl.number" type="text"  placeholder="number">
-	<input ng-model="ctrl.languages" type="text"  placeholder="language(s)">
+	Playlist Name:<input ng-model="ctrl.name" type="text"  placeholder="any name">
+	Difficulty:<input ng-model="ctrl.difficulty" type="text"  placeholder="Beginner, Intermediate..">
+	Language:<input ng-model="ctrl.languages" type="text"  placeholder="Ruby, Python, Javascript..">
 	<input type="submit" value="submit">
 </form>
 
-<h2>Add to a playlist!</h2>
+<h2>Add video to a playlist</h2>
+<!-- <select ng-model="playlistName"
+	data-ng-options="name.name as playlist.name for name in ctrl.playlistName">
+		<option value selected="selected">Show All</option>
+</select> -->
+
 <form ng-submit="ctrl.addToPlaylist(playlist_id, lesson_id)">
+
 	<input ng-model="ctrl.playlist_id" type="text"  placeholder="playlist_id ex. 1,2,3,etc.">
+
 	<input ng-model="ctrl.lesson_id" type="text"  placeholder="lesson_id ex. 1,2,3,etc.">
+
 	<input type="submit" value="submit">
 </form>
 
 <div ng-repeat="playlist in ctrl.playlists">
 <ul>
+--------------------------------------
+	<li>Playlist #{{playlist.id}}</li>
 	<li>{{playlist.name}}</li>
-	<button ng-click="ctrl.removePlaylist(playlist.id)" >Delete Playlist</button>
-	--------------------------------------
+	<button ng-click="ctrl.removePlaylist(playlist.id)">Delete Playlist</button>
+	
+	
 </ul>
 <div ng-repeat="lesson in playlist.lessons">
 <ul>
@@ -111,6 +120,7 @@
     disablekb="true"
     end="20">
 </ng-youtube-embed>
+<p>--------------------------------------<p>
 </ul>
 </div>
 </div>
