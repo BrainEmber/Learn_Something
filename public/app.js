@@ -12,8 +12,8 @@ app.controller('mainController', ['$http', function($http){
 	this.text2 = 'Hide video';
 	this.playlistId = 0;
 	this.lessonDifficulties = [
-	{name: 'Beginner', difficulty: 'Beginner'}, 
-	{name: 'Intermediate', difficulty: 'Intermediate'}, 
+	{name: 'Beginner', difficulty: 'Beginner'},
+	{name: 'Intermediate', difficulty: 'Intermediate'},
 	{name: 'Advanced', difficulty: 'Advanced'}
 	];
 	this.lessonLanguages = [
@@ -99,7 +99,7 @@ app.controller('mainController', ['$http', function($http){
 	this.removePlaylist = function(id){
 		$http({
 			method: 'DELETE',
-			url: 'http://localhost:3000/playlists/' + id 
+			url: 'http://localhost:3000/playlists/' + id
 		}).then
 		(response => {
 			console.log(response);
@@ -109,7 +109,24 @@ app.controller('mainController', ['$http', function($http){
 		this.removeLedger= function(id){
 		$http({
 			method: 'DELETE',
-			url: 'http://localhost:3000/ledgers/' + id 
+			url: 'http://localhost:3000/ledgers/' + id
+		}).then
+		(response => {
+			console.log(response);
+		}).catch(err => console.log(err));
+	};
+
+
+	this.updatePlaylist = function(id){
+		$http({
+			method: 'PATCH',
+			url: 'http://localhost:3000/playlists/' + id,
+			data: {
+				name : this.name,
+				difficulty : this.difficulty,
+				number : this.number,
+				languages : this.languages,
+			}
 		}).then
 		(response => {
 			console.log(response);
