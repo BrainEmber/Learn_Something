@@ -12,15 +12,18 @@ app.controller('mainController', ['$http', function($http){
 	this.text2 = 'Hide video';
 	this.playlistId = 0;
 	this.lessonDifficulties = [
-	{name: 'beginnerlevel', difficulty: 'Beginner'}, 
-	{name: 'intermediatelevel', difficulty: 'Intermediate'}, 
-	{name: 'advancedlevel', difficulty: 'Advanced'}
+	{name: 'Beginner', difficulty: 'Beginner'}, 
+	{name: 'Intermediate', difficulty: 'Intermediate'}, 
+	{name: 'Advanced', difficulty: 'Advanced'}
 	];
 	this.lessonLanguages = [
-	{name: 'rubylanguage', language: 'Ruby'},
-	{name: 'pythonlanguage', language: 'Python'},
-	{name: 'javascriptlanguage', language: 'Javascript'}
+	{name: 'Ruby', language: 'Ruby'},
+	{name: 'Python', language: 'Python'},
+	{name: 'Javascript', language: 'Javascript'}
 	];
+	this.playlistName = [
+	{namez: 'sdf', name: 'sdf'},
+	{namez:'Aweomse Playlist 2', name:'Aweomse Playlist 2'}];
 
 
 
