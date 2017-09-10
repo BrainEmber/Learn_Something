@@ -122,10 +122,10 @@ app.controller('mainController', ['$http', function($http){
 			method: 'PATCH',
 			url: 'http://localhost:3000/playlists/' + id,
 			data: {
-				name : this.name,
-				difficulty : this.difficulty,
-				number : this.number,
-				languages : this.languages,
+				name : this.updatedName,
+				difficulty : this.updatedDifficulty,
+				number : this.updatedNumber,
+				language : this.updatedLanguage,
 			}
 		}).then
 		(response => {
