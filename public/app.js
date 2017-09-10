@@ -10,6 +10,21 @@ app.controller('mainController', ['$http', function($http){
 	const controller = this;
 	this.text1 = 'Show video';
 	this.text2 = 'Hide video';
+	this.playlistId = 0;
+	this.lessonDifficulties = [
+	{name: 'Beginner', difficulty: 'Beginner'}, 
+	{name: 'Intermediate', difficulty: 'Intermediate'}, 
+	{name: 'Advanced', difficulty: 'Advanced'}
+	];
+	this.lessonLanguages = [
+	{name: 'Ruby', language: 'Ruby'},
+	{name: 'Python', language: 'Python'},
+	{name: 'Javascript', language: 'Javascript'}
+	];
+	this.playlistName = [
+	{namez: 'sdf', name: 'sdf'},
+	{namez:'Aweomse Playlist 2', name:'Aweomse Playlist 2'}];
+
 
 
 	$http({
@@ -24,7 +39,6 @@ app.controller('mainController', ['$http', function($http){
 			// this.difficulty = response.data[0].difficulty;
 			// this.url = response.data[0].url;
 			this.lessons = response.data;
-			
 		}).catch(err => console.log(err));
 
 	$http({
@@ -39,7 +53,7 @@ app.controller('mainController', ['$http', function($http){
 			// this.difficulty = response.data[0].difficulty;
 			// this.url = response.data[0].url;
 			this.playlists = response.data;
-			
+
 		}).catch(err => console.log(err));
 
 	this.addToPlaylist = function(){
@@ -80,11 +94,26 @@ app.controller('mainController', ['$http', function($http){
 		}).catch(err => console.log(err));
 	};
 
-}]);
 
-// app.filter('trusted', ['$sce', function ($sce) {
-//     return function(url) {
-//             var video_id = url.split('v=')[1].split('&')[0];
-//         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + video_id);
-//     };
-// }]);
+
+	this.removePlaylist = function(id){
+		$http({
+			method: 'DELETE',
+			url: 'http://localhost:3000/playlists/' + id 
+		}).then
+		(response => {
+			console.log(response);
+		}).catch(err => console.log(err));
+	};
+
+		this.removeLedger= function(id){
+		$http({
+			method: 'DELETE',
+			url: 'http://localhost:3000/ledgers/' + id 
+		}).then
+		(response => {
+			console.log(response);
+		}).catch(err => console.log(err));
+	};
+
+}]);
