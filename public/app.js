@@ -21,15 +21,13 @@ app.controller('mainController', ['$http', function($http){
 	{name: 'Python', language: 'Python'},
 	{name: 'Javascript', language: 'Javascript'}
 	];
-	this.playlistName = [
-	{namez: 'sdf', name: 'sdf'},
-	{namez:'Aweomse Playlist 2', name:'Aweomse Playlist 2'}];
+	this.URL = "https://learn-something-new-api.herokuapp.com"
 
 
 
 	$http({
 		method: 'GET',
-		url: 'http://localhost:3000/lessons'
+		url: this.URL + '/lessons'
 	}).then
 		(response => {
 			// this.name = response.data[0].name;
@@ -43,7 +41,7 @@ app.controller('mainController', ['$http', function($http){
 
 	$http({
 		method: 'GET',
-		url: 'http://localhost:3000/playlists'
+		url: this.URL + '/playlists'
 	}).then
 		(response => {
 			// this.name = response.data[0].name;
@@ -59,7 +57,7 @@ app.controller('mainController', ['$http', function($http){
 	this.addToPlaylist = function(){
 		$http({
 			method: 'POST',
-			url: 'http://localhost:3000/ledgers',
+			url: this.URL + '/ledgers',
 			dataType: 'json',
 			data : {
 				lesson_id: this.lesson_id,
@@ -80,7 +78,7 @@ app.controller('mainController', ['$http', function($http){
 	this.createPlaylist = function(){
 		$http({
 			method: 'POST',
-			url: 'http://localhost:3000/playlists',
+			url: this.URL + '/playlists',
 			dataType: 'json',
 			data: {
 				name : this.name,
@@ -99,7 +97,7 @@ app.controller('mainController', ['$http', function($http){
 	this.removePlaylist = function(id){
 		$http({
 			method: 'DELETE',
-			url: 'http://localhost:3000/playlists/' + id
+			url: this.URL + '/playlists/' + id
 		}).then
 		(response => {
 			console.log(response);
@@ -109,7 +107,7 @@ app.controller('mainController', ['$http', function($http){
 		this.removeLedger= function(id){
 		$http({
 			method: 'DELETE',
-			url: 'http://localhost:3000/ledgers/' + id
+			url: this.URL + '/ledgers/' + id
 		}).then
 		(response => {
 			console.log(response);
@@ -120,7 +118,7 @@ app.controller('mainController', ['$http', function($http){
 	this.updatePlaylist = function(id){
 		$http({
 			method: 'PATCH',
-			url: 'http://localhost:3000/playlists/' + id,
+			url: this.URL + '/playlists/' + id,
 			data: {
 				name : this.updatedName,
 				difficulty : this.updatedDifficulty,
