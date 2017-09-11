@@ -123,7 +123,7 @@
 <div class="center">
 <div id="lessonDiv" data-ng-repeat="lesson in ctrl.lessons | filter:(!!lessonFilter || undefined) && {difficulty: lessonFilter} | filter:(!!lessonzFilter || undefined) && {language: lessonzFilter}">
 	<ul class="list-group">
-		<li class="list-group-item">Id: {{lesson.id}}</li>
+		<li class="list-group-item list-group-item-warning">Id: {{lesson.id}}</li>
 		<ng-youtube-embed
     video="lesson.url"
     autoplay="false"
@@ -131,11 +131,11 @@
     disablekb="true"
     end="20">
 		</ng-youtube-embed>
-		<li class="list-group-item" >{{lesson.name}}</li>
+		<!-- <li class="list-group-item" >{{lesson.name}}</li> -->
 		<li class="list-group-item" >Author: {{lesson.author}} </li>
-		<li class="list-group-item" >Released: {{lesson.date}} </li>
-		<li class="list-group-item" >Coding Lanuage: {{lesson.language}} </li>
-		<li class="list-group-item" >Difficulty: {{lesson.difficulty}}</li>
+		<li class="list-group-item list-group-item-info">Coding Lanuage: {{lesson.language}} </li>
+		<li class="list-group-item">Released: {{lesson.date}} </li>
+		<li class="list-group-item list-group-item-info">Difficulty: {{lesson.difficulty}}</li>
 	</ul>
 </div>
 </div>
