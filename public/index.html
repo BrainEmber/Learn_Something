@@ -111,9 +111,9 @@
 	<div ng-show="updateHide">
 		<form ng-submit="ctrl.updatePlaylist(playlist.id, name, difficulty, languages, number)">
 
-			New Playlist Name:<input ng-model="ctrl.name" type="text"  placeholder="any name">
-			New Difficulty:<input ng-model="ctrl.difficulty" type="text"  placeholder="Beginner, Intermediate..">
-			New Language:<input ng-model="ctrl.languages" type="text"  placeholder="Ruby, Python, Javascript..">
+			New Playlist Name:<input ng-model="ctrl.updatedName" type="text"  placeholder="any name">
+			New Difficulty:<input ng-model="ctrl.updatedDifficulty" type="text"  placeholder="Beginner, Intermediate..">
+			New Language:<input ng-model="ctrl.updatedLanguage" type="text"  placeholder="Ruby, Python, Javascript..">
 			<input type="submit" value="submit">
 
 		</form>
@@ -129,7 +129,7 @@
 	<li>{{lesson.name}}</li>
 	<button ng-show="!isHidden" ng-click="isHidden = true">{{ctrl.text1}}</button>
 	<button  ng-show="isHidden" ng-click="isHidden = false">{{ctrl.text2}}</button>
-<!-- 	<button ng-click="ctrl.removeLedger(ledger.id)" >Delete lesson from playlist</button> -->
+	<button ng-click="ctrl.removeLedger(ledger.id)" >Delete lesson from playlist</button>
 	<ng-youtube-embed ng-show="isHidden"
     video="lesson.url"
     autoplay="false"
