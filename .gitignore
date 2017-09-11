@@ -15,7 +15,7 @@
 
 .byebug_history
 
-node_modules
+node_module
 
 *.rbc
 capybara-*.html
