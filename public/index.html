@@ -35,7 +35,6 @@
 </form>
 </div>
 
-
 <div class="form-group">
 <h2>Add video to a playlist</h2>
 
@@ -50,11 +49,12 @@
 </div>
 
 </div>
-<div class="col-sm-6">
+<div class="col-sm-6 center">
+<h2>Playlists</h2>
 <div ng-repeat="playlist in ctrl.playlists">
 <ul>
-	<li>Playlist #{{playlist.id}}</li>
 	<li>{{playlist.name}}</li>
+	<li>Playlist #{{playlist.id}}</li>
 	<button class="btn btn-danger" ng-click="ctrl.removePlaylist(playlist.id)">Delete Playlist</button>
 
 	<!-- Update Playlist From -->
@@ -63,9 +63,9 @@
 	<div ng-show="updateHide">
 		<form class="form-group" ng-submit="ctrl.updatePlaylist(playlist.id, name, difficulty, languages, number)">
 
-			New Playlist Name:<input class="form-control" ng-model="ctrl.updatedName" type="text"  placeholder="any name">
-			New Difficulty:<input class="form-control" ng-model="ctrl.updatedDifficulty" type="text"  placeholder="Beginner, Intermediate, or Advanced">
-			New Language:<input class="form-control" ng-model="ctrl.updatedLanguage" type="text"  placeholder="Ruby, Python, Javascript..">
+			Playlist Name:<input class="form-control" ng-model="ctrl.updatedName" type="text"  placeholder="any name">
+			Difficulty:<input class="form-control" ng-model="ctrl.updatedDifficulty" type="text"  placeholder="Beginner, Intermediate, or Advanced">
+			Language:<input class="form-control" ng-model="ctrl.updatedLanguage" type="text"  placeholder="Ruby, Python, Javascript..">
 			<input class="btn btn-primary" type="submit" value="Update">
 
 		</form>
@@ -94,6 +94,7 @@
 <!-- <p>--------------------------------------<p> -->
 </ul>
 </div>
+<hr/>
 </div>
 </div>
 </div>
