@@ -1,5 +1,5 @@
 const express = require('express');
-const bootstrapSelect = require('bootstrap-select');
+const select = require('bootstrap-select');
 const app = express();
 const PORT = process.env.PORT || 2080;
 
