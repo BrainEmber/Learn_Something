@@ -129,7 +129,6 @@
 	<li>{{lesson.name}}</li>
 	<button ng-show="!isHidden" ng-click="isHidden = true">{{ctrl.text1}}</button>
 	<button  ng-show="isHidden" ng-click="isHidden = false">{{ctrl.text2}}</button>
-	<button ng-click="ctrl.removeLedger(ledger.id)" >Delete lesson from playlist</button>
 	<ng-youtube-embed ng-show="isHidden"
     video="lesson.url"
     autoplay="false"
