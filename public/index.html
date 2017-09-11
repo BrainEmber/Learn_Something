@@ -45,12 +45,12 @@
 <!-- ng-show="selected.difficulty === 'Beginner'" -->
 <!-- | filter: ctrl.filterByDifficulty(lesson.difficulty)  -->
 <div class="filterSelect">
-<select ng-model="lessonFilter"
+<select class="selectpicker" ng-model="lessonFilter"
 	data-ng-options="difficulty.difficulty as difficulty.name for difficulty in ctrl.lessonDifficulties">
 		<option value selected="selected">All Difficulties</option>
 </select>
 
-<select ng-model="lessonzFilter"
+<select class="selectpicker" ng-model="lessonzFilter"
 	data-ng-options="language.language as language.name for language in ctrl.lessonLanguages">
 		<option value selected="selected">All Coding Languages</option>
 </select>
