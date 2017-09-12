@@ -130,3 +130,4 @@ this.getPlaylists = function(){
 this.getLessons();
 this.getPlaylists();
 }]);
+

@@ -1,5 +1,7 @@
 body {
 	background-color: azure;
+	font-family: 'Bree Serif', serif;
+	font-size: 1.4em;
 }
 
 ul {
@@ -11,7 +13,7 @@ ul {
 	display: inline-block;
 	text-align: center;
 	margin-bottom: 42px;
-	/*box-shadow: 10px 10px 5px #888888;*/
+	
 }
 
 .filterSelect {
@@ -30,6 +32,7 @@ h1 {
 	text-align: center;
 	background-color: #4D3F5f;
 	color: white;
+	font-family: 'Fjalla One', sans-serif;
 }
 
 h4 {
@@ -47,4 +50,34 @@ input {
 .list-group {
 	padding: 0px 5px;
 	margin: 0px;
+}
+
+.idNumbers {
+	font-weight: bold;
+	font-size: 1.4em;
+	color: #A43726;
+}
+
+p {
+	font-size: 1.25em;
+}
+
+h3{
+	color: #655085;
+}
+
+#playlists {
+	box-shadow: 10px 10px 5px #888888;
+	background-color: #DAFFFE;
+	border-radius: 10px;
+	border: .5px solid gray;
+	margin-bottom: 20px;
+}
+
+.marginBottom {
+	margin-bottom: 20px;
+}
+
+#marginTop{
+	margin-top: 15px;
 }
