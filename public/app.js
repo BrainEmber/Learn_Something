@@ -39,20 +39,24 @@ app.controller('mainController', ['$http', function($http){
 			this.lessons = response.data;
 		}).catch(err => console.log(err));
 
-	$http({
-		method: 'GET',
-		url: this.URL + '/playlists'
-	}).then
-		(response => {
-			// this.name = response.data[0].name;
-			// this.author = response.data[0].author;
-			// this.date = response.data[0].date;
-			// this.language = response.data[0].language;
-			// this.difficulty = response.data[0].difficulty;
-			// this.url = response.data[0].url;
-			this.playlists = response.data;
 
-		}).catch(err => console.log(err));
+this.getPlaylists = function(){
+		$http({
+			method: 'GET',
+			url: this.URL + '/playlists'
+		}).then
+			(response => {
+				// this.name = response.data[0].name;
+				// this.author = response.data[0].author;
+				// this.date = response.data[0].date;
+				// this.language = response.data[0].language;
+				// this.difficulty = response.data[0].difficulty;
+				// this.url = response.data[0].url;
+				this.playlists = response.data;
+
+			}).catch(err => console.log(err));
+};
+
 
 	this.addToPlaylist = function(){
 		$http({
@@ -66,6 +70,7 @@ app.controller('mainController', ['$http', function($http){
 		}).then
 		(response => {
 			console.log(response);
+			this.getPlaylists();
 		}).catch(err => console.log(err));
 	};
 
@@ -89,6 +94,7 @@ app.controller('mainController', ['$http', function($http){
 		}).then
 		(response => {
 			console.log(response);
+			this.getPlaylists();
 		}).catch(err => console.log(err));
 	};
 
@@ -101,6 +107,7 @@ app.controller('mainController', ['$http', function($http){
 		}).then
 		(response => {
 			console.log(response);
+			this.getPlaylists();
 		}).catch(err => console.log(err));
 	};
 
@@ -128,6 +135,7 @@ app.controller('mainController', ['$http', function($http){
 		}).then
 		(response => {
 			console.log(response);
+			this.getPlaylists();
 		}).catch(err => console.log(err));
 	};
 
