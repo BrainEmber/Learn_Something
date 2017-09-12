@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/BrainEmber/Learn_Something_FrontEnd#readme",
   "dependencies": {
+    "bootstrap-select": "^1.12.4",
     "express": "^4.15.4"
   }
 }
