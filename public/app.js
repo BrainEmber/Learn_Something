@@ -36,26 +36,6 @@ this.getLessons = function(){
 		}).catch(err => console.log(err));
 };
 
-<<<<<<< HEAD
-
-this.getPlaylists = function(){
-		$http({
-			method: 'GET',
-			url: this.URL + '/playlists'
-		}).then
-			(response => {
-				// this.name = response.data[0].name;
-				// this.author = response.data[0].author;
-				// this.date = response.data[0].date;
-				// this.language = response.data[0].language;
-				// this.difficulty = response.data[0].difficulty;
-				// this.url = response.data[0].url;
-				this.playlists = response.data;
-
-			}).catch(err => console.log(err));
-};
-
-=======
 this.getPlaylists = function(){
 	$http({
 		method: 'GET',
@@ -65,7 +45,6 @@ this.getPlaylists = function(){
 			this.playlists = response.data;
 		}).catch(err => console.log(err));
 	};
->>>>>>> fff1ebbf60aac934622882d457299158ab61a677
 
 	this.addToPlaylist = function(){
 		$http({
