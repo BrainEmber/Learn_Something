@@ -10,6 +10,8 @@ app.controller('mainController', ['$http', function($http){
 	const controller = this;
 	this.text1 = 'Show video';
 	this.text2 = 'Hide video';
+	this.text3 = 'Show lessons';
+	this.text4 = 'Hide lessons';
 	this.playlistId = 0;
 	this.lessonDifficulties = [
 	{name: 'Beginner', difficulty: 'Beginner'},
@@ -24,21 +26,17 @@ app.controller('mainController', ['$http', function($http){
 	this.URL = 'https://learn-something-new-api.herokuapp.com'
 
 
-
+this.getLessons = function(){
 	$http({
 		method: 'GET',
 		url: this.URL + '/lessons'
 	}).then
 		(response => {
-			// this.name = response.data[0].name;
-			// this.author = response.data[0].author;
-			// this.date = response.data[0].date;
-			// this.language = response.data[0].language;
-			// this.difficulty = response.data[0].difficulty;
-			// this.url = response.data[0].url;
 			this.lessons = response.data;
 		}).catch(err => console.log(err));
+};
 
+<<<<<<< HEAD
 
 this.getPlaylists = function(){
 		$http({
@@ -57,6 +55,17 @@ this.getPlaylists = function(){
 			}).catch(err => console.log(err));
 };
 
+=======
+this.getPlaylists = function(){
+	$http({
+		method: 'GET',
+		url: this.URL + '/playlists'
+	}).then
+		(response => {
+			this.playlists = response.data;
+		}).catch(err => console.log(err));
+	};
+>>>>>>> fff1ebbf60aac934622882d457299158ab61a677
 
 	this.addToPlaylist = function(){
 		$http({
@@ -69,6 +78,7 @@ this.getPlaylists = function(){
 			}
 		}).then
 		(response => {
+			this.getPlaylists();
 			console.log(response);
 			this.getPlaylists();
 		}).catch(err => console.log(err));
@@ -139,4 +149,6 @@ this.getPlaylists = function(){
 		}).catch(err => console.log(err));
 	};
 
+this.getLessons();
+this.getPlaylists();
 }]);
